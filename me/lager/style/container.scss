@@ -1,0 +1,195 @@
+* {
+    margin: 3;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aqua;
+    font-family: sans-serif;
+}
+
+.container {
+    padding: 1rem;
+    margin-bottom: 3.2rem;
+    margin-top: 2rem;
+    line-height: 1.4;
+    font-size: 1.2rem;
+}
+
+.button {
+    display: inline-block;
+    font-family: math;
+    font-size: 1.2rem;
+    padding: 0.4rem 1rem;
+    text-align: center;
+    border-radius: 0.2rem;
+    line-height: 1.4;
+    background-color: black;
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(98, 215, 55);
+    color: rgb(0, 0, 0);
+}
+
+.pack-button {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 6px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin: 3px;
+    border: none;
+    cursor: pointer;
+    width: 85px;
+}
+
+.pack-button:hover {
+    background-color: rgb(98, 215, 55);
+    color: rgb(0, 0, 0);
+}
+
+.input {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+}
+
+.placeholder {
+    display: block;
+    width: 50%; // Tar upp hela tillgängliga bredden
+    padding: 10px; // Lite utrymme inuti
+    margin-bottom: 15px; // Utymme nedåt till nästa element
+    box-sizing: border-box; // Inkluderar padding och border i bredden
+    background-color: white;
+    color: black;
+}
+
+.date {
+    display: block;
+    width: 50%; // Tar upp hela tillgängliga bredden
+    padding: 10px; // Lite utrymme inuti
+    margin-bottom: 5px; // Utymme nedåt till nästa element
+    box-sizing: border-box; // Inkluderar padding och border i bredden
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+}
+
+.amount {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+}
+
+.comment {
+    display: block;
+    width: 50%; // Tar upp hela tillgängliga bredden
+    padding: 10px; // Lite utrymme inuti
+    margin-bottom: 5px; // Utymme nedåt till nästa element
+    box-sizing: border-box; // Inkluderar padding och border i bredden
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+}
+
+.bottom-nav {
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 5%;
+    height: 50px;
+}
+
+.bottom-nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    background-color: rgb(94, 61, 61);
+}
+
+.bottom-nav a:hover {
+    background-color: rgb(98, 215, 55);
+    color: rgb(0, 0, 0);
+}
+
+.delivery-item {
+    border: 1px solid white;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.delivery-item p {
+    background-color: white;
+}
+
+.delivery-item span{
+    background-color: white;
+}
+
+/*kmom04*/ 
+.toast {
+    position: fixed;
+    bottom: 50;
+    right: 0;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 500ms, opacity 500ms;
+}
+
+.toast.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-body {
+    margin: 200px;
+    padding: 20px 24px;
+    background-color: rgb(140, 206, 247);
+    color: rgb(1, 1, 160);
+    border-radius: 5px;
+}
+
+/*tabeller*/ 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background-color: white;
+}
+
+.table th,table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 16px; /* anpassar storleken på innehållet */
+}
+
+.table thead {
+    background-color: #f2f2f2; /* bakgrundsfärg på tabellhuvudet */
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* bakgrundsfärg på jämna rader */
+}
+
+.table tbody tr:hover {
+    background-color: rgb(98, 215, 55); /*  Hover effekt */
+}
+
+
