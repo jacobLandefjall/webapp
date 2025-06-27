@@ -24,7 +24,7 @@ Feel free to help building up the repository with more content suited for traini
 
 # Final project result
 
-```![Skärmbild 2025-06-27 171556](https://github.com/user-attachments/assets/c06311c1-d884-436e-bd18-459a952d2127)
+![Skärmbild 2025-06-27 171556](https://github.com/user-attachments/assets/c06311c1-d884-436e-bd18-459a952d2127)
 
  .
 ..:  Copyright (c) 2015-2018 dbwebb et al, info@dbwebb.se
