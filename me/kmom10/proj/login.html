@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Logga in</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navbar.css" />
+    <link rel="stylesheet" href="./style/delays.css" />
+    <link rel="stylesheet" href="./style/login.css" />
+    <script src="./loadHtml/load.js"></script>
+    <script type="module" src="./components/delays.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+        <div class="login-form">
+            <h2>Logga in</h2>
+            <input id="email" placeholder="Email" type="email" />
+            <input id="password" placeholder="Lösenord" type="password" />
+            <button id="loginBtn">Logga in</button>
+        </div>
+
+    <script type="module">
+    import { loginUser } from "./components/login.js";
+
+    document.getElementById("loginBtn").addEventListener("click", () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        loginUser(email, password);
+    });
+    </script>
+    <div id="footer"></div>
+    <script type="module">
+        fetch("templates/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

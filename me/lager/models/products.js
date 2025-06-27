@@ -34,11 +34,9 @@ const products = {
     getOrders: async function getOrders() {
         const response = await fetch(`${baseURL}/orders?api_key=${apiKey}`);
         const result = await response.json();
-
         // Resultat till this.orders och filtera ut alla ordrar som har status 100
         return result.data;
 
-        //console.log(this.orders);
     }
 };
 

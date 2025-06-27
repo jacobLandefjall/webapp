@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Förseningar i Tågtrafiken</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navbar.css" />
+    <link rel="stylesheet" href="./style/delays.css" />
+    <script src="./loadHtml/load.js"></script>
+    <script type="module" src="./components/delays.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <!-- API data -->
+    </main>
+    <div id="footer"></div>
+    <script type="module">
+        fetch("templates/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

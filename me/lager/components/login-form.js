@@ -38,20 +38,16 @@ export default class LoginForm extends HTMLElement {
     }
 
     connectedCallback() {
-        // Kontrollera om användaren är inloggad
-        /*let token = localStorage.getItem("token");
-
-        // Hitta tabellen
-        let invoicesTable = document.querySelector(".table");
-
-        if (invoicesTable ){
-            if (token) {
-                invoicesTable.style.display = "table";
-            } else {
-                invoicesTable.style.display = "none";
-            } */
         // Skapar ett formulär
         let form = document.createElement('form');
+
+        form.classList.add('login-form');
+        
+        // Lägg till en titel för formuläret
+        let formTitle = document.createElement('h2');
+        formTitle.textContent = "Logga in";
+        formTitle.classList.add('form-heading');
+        form.appendChild(formTitle);
 
         // Addeventlistener på formuläret
         form.addEventListener("submit", (event) => {
@@ -71,7 +67,7 @@ export default class LoginForm extends HTMLElement {
         // Ger rätt tangentbord för email.
         username.setAttribute("type", "email");
         username.setAttribute("required", "required");
-        username.classList.add("input");
+        username.classList.add("input", "styled-input");
 
         // Eventlistener för input elementet
         username.addEventListener("input", (event) => {
@@ -91,7 +87,8 @@ export default class LoginForm extends HTMLElement {
         // Gömmer texten i lösenordet
         password.setAttribute("type", "password");
         password.setAttribute("required", "required");
-        password.classList.add("input");
+        password.setAttribute("placeholder", "Ange ditt lösenord");
+        password.classList.add("input", "styled-input");
 
         password.addEventListener("input", (event) => {
             this.credentials = {
@@ -100,16 +97,20 @@ export default class LoginForm extends HTMLElement {
             }
         });
 
+        // Container för knappar med styling
+        let buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
+
         let submitButton = document.createElement('input');
 
         submitButton.setAttribute("type", "submit");
         submitButton.setAttribute("value", "Logga in");
-        submitButton.classList.add("button","green-button");
-
+        submitButton.classList.add("button", "green-button");
+    
         let registerButton = document.createElement('input');
         registerButton.setAttribute("type", "button");
         registerButton.setAttribute("value", "Registrera");
-        registerButton.classList.add("button","blue-button");
+        registerButton.classList.add("button", "blue-button");
 
         registerButton.addEventListener("click", (event) => {
             event.preventDefault();
@@ -123,6 +124,14 @@ export default class LoginForm extends HTMLElement {
         form.appendChild(password);
         form.appendChild(submitButton);
         form.appendChild(registerButton);
+
+        // Lägg till knappar i knappcontainern
+        buttonContainer.appendChild(submitButton);
+        buttonContainer.appendChild(registerButton);
+                
+        // Lägg till knappcontainern i formuläret
+        form.appendChild(buttonContainer);
+        
 
         this.appendChild(form);
     }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Utnyttja Förseningar</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <link rel="stylesheet" href="./style/style.css" />
+        <link rel="stylesheet" href="./style/navbar.css" />
+        <link rel="stylesheet" href="./style/map.css" />
+        <script src="./loadHtml/load.js"></script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <main>
+            <h2>Upptäck området medan du väntar</h2>
+            <p>Här kan du se din nuvarande position och utforska omgivningen.</p>
+            <div class="input-section">
+            <label for="delay-minutes">Försening (minuter):</label>
+            <input type="number" id="delay-minutes" min="1" value="10" />
+            <button id="draw-radius">Visa Gångområde</button>
+        </div>
+        <div id="map"></div>
+    </main>
+        <div class="input-section">
+            <label for="station-select">Välj station:</label>
+            <select id="station-select">
+                <option value="">Laddar stationer...</option>
+            </select>
+        </div>
+
+    <!-- Load leaflet and script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script type="module" src="./components/map.js"></script>
+    <div id="footer"></div>
+    <script type="module">
+        fetch("templates/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

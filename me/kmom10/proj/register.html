@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registrera användare</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navbar.css" />
+    <link rel="stylesheet" href="./style/delays.css" />
+    <link rel="stylesheet" href="./style/login.css" />
+    <script src="./loadHtml/load.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+        <div class="login-form">
+            <h2>Registrera användare</h2>
+            <input id="email" placeholder="Email">
+            <input id="password" placeholder="Lösenord" type="password">
+            <button id="registerBtn">Registrera</button>
+        </div>
+        <script type="module">
+        import { registerUser } from "./components/register.js";
+
+        document.getElementById("registerBtn").addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            registerUser(email, password);
+        });
+    </script>
+    <main>
+        <!-- Data -->
+    </main>
+    <div id="footer"></div>
+    <script type="module">
+        fetch("templates/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

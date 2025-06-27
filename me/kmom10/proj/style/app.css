@@ -1,0 +1,184 @@
+/* Facebook-style */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+}
+
+.fb-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.fb-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid #dddfe2;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}
+
+.fb-header h1 {
+    color: #1877f2;
+    font-size: 24px;
+    margin: 0;
+    padding: 5px 0;
+}
+
+.fb-search {
+    display: flex;
+    align-items: center;
+    background: #f0f2f5;
+    border-radius: 20px;
+    padding: 8px 12px;
+    margin-top: 5px;
+}
+
+.fb-search i {
+    color: #65676b;
+    margin-right: 8px;
+}
+
+.fb-search input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 15px;
+}
+
+.fb-posts {
+    padding-bottom: 60px;
+}
+
+.fb-post {
+    background: white;
+    margin: 10px 0;
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddfe2;
+}
+
+.fb-post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.fb-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+@media (max-width: 480px) {
+    .fb-profile {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.fb-post-image {
+    max-width: 100%;
+}
+
+.fb-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.fb-post-author {
+    font-weight: 600;
+    color: #1c1e21;
+}
+
+.fb-post-time {
+    font-size: 13px;
+    color: #65676b;
+}
+
+.fb-post-content {
+    margin-bottom: 10px;
+}
+
+.fb-post-content h3 {
+    margin: 5px 0;
+    color: #1c1e21;
+}
+
+.fb-post-link {
+    color: #1877f2;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.fb-post-actions {
+    display: flex;
+    border-top: 1px solid #dddfe2;
+    padding-top: 8px;
+}
+
+.fb-action-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #65676b;
+    font-size: 14px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fb-action-btn i {
+    margin-right: 5px;
+}
+
+.fb-show-more {
+    background: none;
+    border: none;
+    color: #65676b;
+    font-size: 14px;
+    padding: 0;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.fb-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    border-top: 1px solid #dddfe2;
+    padding: 10px 0;
+}
+
+.fb-bottom-nav a {
+    color: #65676b;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Specialstil för tåginlägg */
+.train-post {
+    background-color: #f7f8fa;
+    border-left: 3px solid #1877f2;
+}
+
+.train-post .fb-post-author {
+    color: #1877f2;
+}

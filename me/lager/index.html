@@ -1,30 +1,34 @@
 <!doctype html>
-<html lang=se>
+<html lang="se">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self' https://lager.emilfolino.se https://cdn.jsdelivr.net/npm/@uploadcare/upload-client@6.14.1/dist/esm/index.browser.mjs 'unsafe-eval';
-     style-src 'self' https://fonts.googleapis.com;
-      font-src https://fonts.gstatic.com;">
+    default-src 'self' https://lager.emilfolino.se https://lager-chat.emilfolino.se https://cdn.jsdelivr.net/npm/@uploadcare/upload-client@6.14.1/dist/esm/index.browser.mjs https://tile.openstreetmap.org data: 'unsafe-eval';
+    connect-src 'self' https://lager.emilfolino.se https://lager-chat.emilfolino.se wss://lager-chat.emilfolino.se https://cdn.socket.io https://upload.uploadcare.com https://nominatim.openstreetmap.org;
+    img-src 'self' data: blob: https://tile.openstreetmap.org;
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline' https://unpkg.com;
+    font-src https://fonts.gstatic.com;
+    script-src 'self' https://cdn.jsdelivr.net https://unpkg.com;">
     <title>Lager-Components</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
     <link rel="stylesheet" href="style.css" />
-    <script type="module" src="main.js" defer></script>
+    <link rel="stylesheet" href="styling.css" />
+
+    <script type="module" src="main.js"></script>
 </head>
 <body>
     <router-outlet></router-outlet>
     <navigation-outlet></navigation-outlet>
     <div class="toast">
         <div class="toast-body"></div>
-    <h1>Camera</h1>
-    <camera-component></camera-component>
-
-
-
-    <nav></nav>
-
-
+        <h1>Camera</h1>
+        <camera-component></camera-component>
+        <nav></nav>
     </div>
 </body>
 </html>

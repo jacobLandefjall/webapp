@@ -1,0 +1,64 @@
+/* Add this to your CSS file */
+.train-info {
+    border: 1px solid #b00;
+    border-radius: 8px;
+    padding: 7px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-width: 80%;
+}
+
+.train-info:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.train-info br {
+    margin-bottom: 8px;
+    display: block;
+    content: "";
+}
+
+.results-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #b00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #900;
+}
+
+.results-container p {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+}

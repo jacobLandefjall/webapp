@@ -49,6 +49,10 @@ export default class Router extends HTMLElement { // export default = kan import
                 name: "Karta",
                 hidden: true,
             },
+            "delivered-orders": {
+                view: "<delivered-orders></delivered-orders>",
+                name: "Levererade Ordrar",
+            },
             "chat": {
                 view: "<chat-form></chat-form>",
                 name: "Chatt",
@@ -98,6 +102,11 @@ export default class Router extends HTMLElement { // export default = kan import
         }
 
 
-        this.innerHTML = html;
+        this.innerHTML = `<div class="fade-in">${html}</div>`;
+
+        // Vänta en kort stund och lägg till 'active' för att trigga animationen
+        setTimeout(() => {
+            this.querySelector('.fade-in').classList.add('active');
+        }, 10);
     }
 }

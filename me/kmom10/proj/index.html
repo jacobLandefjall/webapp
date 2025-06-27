@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web app Projekt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navbar.css" />
+    <script type="module" src="./components/delays.js"></script>
+    <script src="./loadHtml/load.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script type="module">
+            fetch("header.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("header").innerHTML = data;
+
+                    import("./userFunctionality/header.js");
+                });
+    </script>
+    <div class="container">
+        <h2>Vi gör Sverige närmare</h2>
+        <h4 class="info">Sverige är ett stort, avlångt och glest befolkat land.
+            För att allt ska fungera måste vi kunna ta oss till varandra, 
+            och här har Trafikverket en avgörande roll. Vi gör Sverige närmare.
+        </h4>
+
+        <h2>Våra tjänster</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Försenade Tåg</h3>
+                <p>Här kan du se förseningar i tågtrafiken i Sverige.</p>
+                <div class="card-image">
+                    <img src="./img/train.jpg" alt="Utforska omgivningen">
+                </div>
+                <a href="delays.html">Tryck här</a>
+            </div>
+            <div class="service-card">
+                <h3>Utnyttja förseningar</h3>
+                <p>Se här hur du kan utnyttja förseningen av tåget till att se dig omkring.</p>
+                <div class="card-image">
+                    <img src="./img/arrival.jpg" alt="Utforska omgivningen">
+                </div>
+                <a href="map.html">Tryck här</a>
+            </div>
+            <div class="service-card">
+                <h3>Vår app</h3>
+                <p>Här kan du hitta vår "Native Design" för appen.</p>
+                <div class="card-image">
+                    <img src="./img/app.jpg" alt="Utforska omgivningen">
+                </div>
+                <a href="app.html">Tryck här</a>
+            </div>
+            <div class="service-card">
+                <h3>Realtidsdata</h3>
+                <p>Se över vår karta för tågen i realtid.</p>
+                <div class="card-image">
+                    <img src="./img/map.png" alt="Utforska omgivningen">
+                </div>
+                <a href="map.html">Tryck här</a>
+            </div>
+        </div>
+            
+
+    </div>
+    <div id="footer"></div>
+    <script type="module">
+        fetch("templates/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

@@ -40,8 +40,10 @@ import Navigation from "./navigation.js";
 import ProductsView from "./views/products.js";
 
 import ChatFormView from "./views/chat-form.js";
-customElements.define('chat-form', ChatFormView);
+import ChatForm from "./components/chat-form.js";
 
+customElements.define('chat-view', ChatFormView);
+customElements.define('chat-form', ChatForm); 
 
 
 customElements.define('lager-title', LagerTitle);
@@ -73,6 +75,9 @@ customElements.define('map-view', MapView);
 
 import CameraComponent from "./components/camera.js";
 customElements.define('camera-component', CameraComponent);
+import DeliveredOrders from "./views/delivered-view.js";
+customElements.define('delivered-orders', DeliveredOrders);
+//import MapView from "./components/map-view.js";
 
-
-
+// Registrera custom element
+//customElements.define("map-view", MapView);

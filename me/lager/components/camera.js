@@ -3,105 +3,46 @@ import { UploadClient } from "https://cdn.jsdelivr.net/npm/@uploadcare/upload-cl
 export default class CameraComponent extends HTMLElement {
     constructor() {
         super();
-        // referens till ordern
 
-        this.PhotoData ="";
-        this.front = false;
-        this.stream = null;
+        this.photoData = "";
     }
 
-    startup() {
-        let streaming = false;
-        const width = 320; // We will scale the photo width to this
-        let height = 0; // This will be computed based on the input stream
+    connectedCallback() {
+        this.innerHTML = `
+        <div class="camera">
+            <video id="video">Video stream not available.</video>
+            <button id="startbutton">Take photo</button>
+            <button id="sendbutton">Send photo</button>
+        </div>
+        <canvas id="canvas"></canvas>
+        `;
 
-        let video = document.getElementById("video");
-        let canvas = document.getElementById("canvas");
-        let startbutton = document.getElementById("startbutton");
-        let sendbutton = document.getElementById("sendbutton");
-        let flipbutton = document.getElementById("flipbutton");
-
-        this.capture(video);
-
-            video.addEventListener(
-                "kan spela",
-                () => {
-                    if (!streaming) {
-                        height = video.videoHeight / (video.videoWidth / width);
-
-                        if ( isNaN(height)) {
-                            height = width / (4 / 3);
-                        }
-
-                        video.setAttribute("height", height);
-                        video.setAttribute("width", width);
-                        canvas.setAttribute("height", height);
-                        canvas.setAttribute("width", width);
-                        streaming = true;
-                    }
-                },
-                false
-            );
-
-            startbutton.addEventListener(
-                "Klick",
-                (ev) => {
-                    ev.preventDefault();
-                    this.takepicture(canvas, video, width, height);
-                },
-                false
-            );
-
-            sendbutton.addEventListener(
-                "Klick",
-                (ev) => {
-                    ev.preventDefault();
-                    this.sendpicture();
-                },
-                false
-            );
-
-            flipbutton.addEventListener(
-            "Klick",
-            (ev) => {
-                ev.preventDefault();
-                this.front = !this.front;
-
-                if (this.stream == null) return
-
-                this.stream.getTracks().forEach((t) => {
-                    t.stop();
-                });
-
-                this.capture(video);
-            },
-            false
-        );
-
-            this.clearphoto(canvas);
+        window.addEventListener("load", () => {
+            this.startup();
+        }, false);
     }
-    capture(video) {
-        navigator.mediaDevices
-            .getUserMedia({ video: {facingMode: this.front ? "user" : "environment" }, audio: false })
-            .then(function(stream) {
-                this.stream = stream;
-                video.srcObject = stream;
-                video.play();
-            }.bind(this))
-            .catch((err) => {
-                console.log(`An error occurred: ${err}`);
-            });
+
+    async sendpicture() {
+        const blob = await (await fetch(this.photoData)).blob();
+
+        const client = new UploadClient({ publicKey: '682532beb7e512f0a63c' });
+
+        const fileInfo = await client.uploadFile(blob);
+        const cdnUrl = fileInfo.cdnUrl;
+
+        console.log(cdnUrl);
     }
 
     takepicture(canvas, video, width, height) {
         const context = canvas.getContext("2d");
 
-        if (width, height) {
+        if (width && height) {
             canvas.width = width;
             canvas.height = height;
             context.drawImage(video, 0, 0, width, height);
+
             this.photoData = canvas.toDataURL("image/png");
-        }   else {
+        } else {
             this.clearphoto(canvas);
         }
     }
@@ -109,64 +50,13 @@ export default class CameraComponent extends HTMLElement {
     clearphoto(canvas) {
         const context = canvas.getContext("2d");
 
-            context.fillStyle = "#AAA";
-            context.fillRect(0, 0, canvas.width, canvas.height);
-            this.photoData = canvas.toDataURL("image/png");
-        }
+        context.fillStyle = "#AAA";
+        context.fillRect(0, 0, canvas.width, canvas.height);
 
-        connectedCallback() {
-            this.innerHTML = `
-            <div class="camera">
-                <video id="video">Video stream not available.</video>
-                <button id="startbutton">Ta foto</button>
-                <button id="sendbutton">Skicka foto</button>
-                <button id="flipbutton">Byt kamera</button>
+        this.photoData = canvas.toDataURL("image/png");
+    }
 
-            </div>
-            <canvas id="canvas"></canvas>
-            `;
-
-            window.addEventListener("load", () => {
-                this.startup();
-            }, false);
-        }
-
-        async sendpicture() {
-            // blob = representerar data som inte är text
-            const blob = await (await fetch(this.photoData)).blob();
-
-            const client = new UploadClient({ publicKey: '[INSERT API-KEY]' });
-
-            const fileInfo = await client.uploadFile(blob);
-            const cdnUrl = fileInfo.cdnUrl;
-
-            console.log(cdnUrl);
-        }
-
-        takepicture(canvas, video, width, height) {
-            const context = canvas.getContext("2d");
-
-            if (width && height) {
-                canvas.width = width;
-                canvas.height = height;
-                context.drawImage(video, 0, 0, width, height);
-
-                this.photoData = canvas.toDataURL("image/png");
-            } else {
-                this.clearphoto(canvas);
-            }
-        }
-
-        clearphoto(canvas) {
-            const context = canvas.getContext("2d");
-
-            context.fillStyle = "#AAA";
-            context.fillRect(0, 0, canvas.width, canvas.height);
-
-            this.photoData = canvas.toDataURL("image/png");
-        }
-
-        startup() {
+    startup() {
         let streaming = false;
         const width = 320; // We will scale the photo width to this
         let height = 0; // This will be computed based on the input stream
@@ -219,15 +109,6 @@ export default class CameraComponent extends HTMLElement {
         );
 
         sendbutton.addEventListener(
-            "click",
-            (ev) => {
-                ev.preventDefault();
-                this.sendpicture();
-            },
-            false
-        );
-
-        flipbutton.addEventListener(
             "click",
             (ev) => {
                 ev.preventDefault();
